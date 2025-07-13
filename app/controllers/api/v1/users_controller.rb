@@ -41,6 +41,32 @@ class Api::V1::UsersController < ApplicationController
   end
 
   def user_params
-    params.require(:user).permit(:first_name, :last_name, :email)
+    # Handle both nested and flat parameter formats
+    if params[:user]
+      # Handle nested parameters with camelCase conversion
+      user_params = params.require(:user).permit(:first_name, :last_name, :email, :firstName, :lastName)
+      user_params.transform_keys do |key|
+        case key.to_s
+        when 'firstName'
+          'first_name'
+        when 'lastName'
+          'last_name'
+        else
+          key
+        end
+      end
+    else
+      # Handle flat parameters from frontend
+      params.permit(:firstName, :lastName, :email).transform_keys do |key|
+        case key.to_s
+        when 'firstName'
+          'first_name'
+        when 'lastName'
+          'last_name'
+        else
+          key
+        end
+      end
+    end
   end
 end

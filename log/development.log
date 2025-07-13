@@ -46,3 +46,81 @@ Processing by Rails::HealthController#show as HTML
 Completed 200 OK in 4ms (Views: 1.7ms | ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 0.0ms)
 
 
+Started GET "/api/v1/users" for ::1 at 2025-07-13 15:30:34 -0400
+Processing by Api::V1::UsersController#index as HTML
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT `users`.* FROM `users` /*action='index',application='ShabbospdfBackend',controller='users'*/[0m
+  ↳ app/controllers/api/v1/users_controller.rb:6:in 'Api::V1::UsersController#index'
+Completed 200 OK in 2ms (Views: 1.4ms | ActiveRecord: 0.5ms (1 query, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/api/v1/users" for ::1 at 2025-07-13 15:30:53 -0400
+Processing by Api::V1::UsersController#index as HTML
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT `users`.* FROM `users` /*action='index',application='ShabbospdfBackend',controller='users'*/[0m
+  ↳ app/controllers/api/v1/users_controller.rb:6:in 'Api::V1::UsersController#index'
+Completed 200 OK in 3ms (Views: 2.3ms | ActiveRecord: 0.5ms (1 query, 0 cached) | GC: 0.0ms)
+
+
+Started POST "/api/v1/users" for ::1 at 2025-07-13 15:39:21 -0400
+Processing by Api::V1::UsersController#create as */*
+  Parameters: {"firstName" => "Ryan", "lastName" => "Horowitz", "email" => "[FILTERED]", "user" => {"email" => "[FILTERED]"}}
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN /*action='create',application='ShabbospdfBackend',controller='users'*/[0m
+  ↳ app/controllers/api/v1/users_controller.rb:15:in 'Api::V1::UsersController#create'
+  [1m[36mUser Exists? (1.6ms)[0m  [1m[34mSELECT 1 AS one FROM `users` WHERE `users`.`email` = 'ryanhorowitz@yahoo.com' LIMIT 1 /*action='create',application='ShabbospdfBackend',controller='users'*/[0m
+  ↳ app/controllers/api/v1/users_controller.rb:15:in 'Api::V1::UsersController#create'
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mROLLBACK /*action='create',application='ShabbospdfBackend',controller='users'*/[0m
+  ↳ app/controllers/api/v1/users_controller.rb:15:in 'Api::V1::UsersController#create'
+Completed 422 Unprocessable Content in 24ms (Views: 0.2ms | ActiveRecord: 9.5ms (1 query, 0 cached) | GC: 0.0ms)
+
+
+Started POST "/api/v1/users" for ::1 at 2025-07-13 15:40:23 -0400
+Processing by Api::V1::UsersController#create as */*
+  Parameters: {"firstName" => "Ryan", "lastName" => "Horowitz", "email" => "[FILTERED]", "user" => {"email" => "[FILTERED]"}}
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN /*action='create',application='ShabbospdfBackend',controller='users'*/[0m
+  ↳ app/controllers/api/v1/users_controller.rb:15:in 'Api::V1::UsersController#create'
+  [1m[36mUser Exists? (1.6ms)[0m  [1m[34mSELECT 1 AS one FROM `users` WHERE `users`.`email` = 'ryanhorowitz@yahoo.com' LIMIT 1 /*action='create',application='ShabbospdfBackend',controller='users'*/[0m
+  ↳ app/controllers/api/v1/users_controller.rb:15:in 'Api::V1::UsersController#create'
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mROLLBACK /*action='create',application='ShabbospdfBackend',controller='users'*/[0m
+  ↳ app/controllers/api/v1/users_controller.rb:15:in 'Api::V1::UsersController#create'
+Completed 422 Unprocessable Content in 5ms (Views: 0.1ms | ActiveRecord: 1.9ms (1 query, 0 cached) | GC: 0.0ms)
+
+
+Started POST "/api/v1/users" for ::1 at 2025-07-13 15:44:42 -0400
+Processing by Api::V1::UsersController#create as */*
+  Parameters: {"user" => {"firstName" => "Reuven", "lastName" => "Horowitz", "email" => "[FILTERED]"}}
+[31mUnpermitted parameters: :firstName, :lastName. Context: { controller: Api::V1::UsersController, action: create, request: #<ActionDispatch::Request:0x0000000128c3a478>, params: {"user" => {"firstName" => "Reuven", "lastName" => "Horowitz", "email" => "[FILTERED]"}, "controller" => "api/v1/users", "action" => "create"} }[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN /*action='create',application='ShabbospdfBackend',controller='users'*/[0m
+  ↳ app/controllers/api/v1/users_controller.rb:15:in 'Api::V1::UsersController#create'
+  [1m[36mUser Exists? (1.0ms)[0m  [1m[34mSELECT 1 AS one FROM `users` WHERE `users`.`email` = 'ryanhorowitz@yahoo.com' LIMIT 1 /*action='create',application='ShabbospdfBackend',controller='users'*/[0m
+  ↳ app/controllers/api/v1/users_controller.rb:15:in 'Api::V1::UsersController#create'
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mROLLBACK /*action='create',application='ShabbospdfBackend',controller='users'*/[0m
+  ↳ app/controllers/api/v1/users_controller.rb:15:in 'Api::V1::UsersController#create'
+Completed 422 Unprocessable Content in 8ms (Views: 0.1ms | ActiveRecord: 4.5ms (1 query, 0 cached) | GC: 0.0ms)
+
+
+Started POST "/api/v1/users" for ::1 at 2025-07-13 15:46:20 -0400
+Processing by Api::V1::UsersController#create as */*
+  Parameters: {"user" => {"firstName" => "Reuven", "lastName" => "Horowitz", "email" => "[FILTERED]"}}
+[31mUnpermitted parameters: :firstName, :lastName. Context: { controller: Api::V1::UsersController, action: create, request: #<ActionDispatch::Request:0x0000000128f93e80>, params: {"user" => {"firstName" => "Reuven", "lastName" => "Horowitz", "email" => "[FILTERED]"}, "controller" => "api/v1/users", "action" => "create"} }[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN /*action='create',application='ShabbospdfBackend',controller='users'*/[0m
+  ↳ app/controllers/api/v1/users_controller.rb:15:in 'Api::V1::UsersController#create'
+  [1m[36mUser Exists? (1.1ms)[0m  [1m[34mSELECT 1 AS one FROM `users` WHERE `users`.`email` = 'ryanhorowitz@yahoo.com' LIMIT 1 /*action='create',application='ShabbospdfBackend',controller='users'*/[0m
+  ↳ app/controllers/api/v1/users_controller.rb:15:in 'Api::V1::UsersController#create'
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mROLLBACK /*action='create',application='ShabbospdfBackend',controller='users'*/[0m
+  ↳ app/controllers/api/v1/users_controller.rb:15:in 'Api::V1::UsersController#create'
+Completed 422 Unprocessable Content in 10ms (Views: 0.1ms | ActiveRecord: 6.0ms (1 query, 0 cached) | GC: 0.0ms)
+
+
+Started POST "/api/v1/users" for ::1 at 2025-07-13 15:47:27 -0400
+Processing by Api::V1::UsersController#create as */*
+  Parameters: {"user" => {"firstName" => "Reuven", "lastName" => "Horowitz", "email" => "[FILTERED]"}}
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN /*action='create',application='ShabbospdfBackend',controller='users'*/[0m
+  ↳ app/controllers/api/v1/users_controller.rb:15:in 'Api::V1::UsersController#create'
+  [1m[36mUser Exists? (1.0ms)[0m  [1m[34mSELECT 1 AS one FROM `users` WHERE `users`.`email` = 'ryanhorowitz@yahoo.com' LIMIT 1 /*action='create',application='ShabbospdfBackend',controller='users'*/[0m
+  ↳ app/controllers/api/v1/users_controller.rb:15:in 'Api::V1::UsersController#create'
+  [1m[36mUser Create (0.3ms)[0m  [1m[32mINSERT INTO `users` (`first_name`, `last_name`, `email`, `created_at`, `updated_at`) VALUES ('Reuven', 'Horowitz', 'ryanhorowitz@yahoo.com', '2025-07-13 19:47:27.337619', '2025-07-13 19:47:27.337619') RETURNING `id` /*action='create',application='ShabbospdfBackend',controller='users'*/[0m
+  ↳ app/controllers/api/v1/users_controller.rb:15:in 'Api::V1::UsersController#create'
+  [1m[36mTRANSACTION (0.7ms)[0m  [1m[35mCOMMIT /*action='create',application='ShabbospdfBackend',controller='users'*/[0m
+  ↳ app/controllers/api/v1/users_controller.rb:15:in 'Api::V1::UsersController#create'
+Completed 201 Created in 11ms (Views: 0.1ms | ActiveRecord: 5.1ms (2 queries, 0 cached) | GC: 1.6ms)
+
+
