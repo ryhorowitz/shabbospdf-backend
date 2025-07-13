@@ -1,0 +1,14 @@
+  [1m[35m (105.6ms)[0m  [1m[35mCREATE DATABASE "shabbospdf_backend_development" ENCODING = 'unicode' /*application='ShabbospdfBackend'*/[0m
+  [1m[35m (126.8ms)[0m  [1m[35mCREATE DATABASE `shabbospdf_backend_development` DEFAULT CHARACTER SET `utf8mb4` /*application='ShabbospdfBackend'*/[0m
+  [1m[35m (43.4ms)[0m  [1m[35mCREATE TABLE `schema_migrations` (`version` varchar(255) NOT NULL PRIMARY KEY) /*application='ShabbospdfBackend'*/[0m
+  [1m[35m (21.6ms)[0m  [1m[35mCREATE TABLE `ar_internal_metadata` (`key` varchar(255) NOT NULL PRIMARY KEY, `value` varchar(255), `created_at` datetime(6) NOT NULL, `updated_at` datetime(6) NOT NULL) /*application='ShabbospdfBackend'*/[0m
+  [1m[35mSQL (0.5ms)[0m  [1m[34mSELECT GET_LOCK('4385993397488378970', 0) /*application='ShabbospdfBackend'*/[0m
+  [1m[36mActiveRecord::SchemaMigration Load (7.7ms)[0m  [1m[34mSELECT `schema_migrations`.`version` FROM `schema_migrations` ORDER BY `schema_migrations`.`version` ASC /*application='ShabbospdfBackend'*/[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.6ms)[0m  [1m[34mSELECT * FROM `ar_internal_metadata` WHERE `ar_internal_metadata`.`key` = 'environment' ORDER BY `ar_internal_metadata`.`key` ASC LIMIT 1 /*application='ShabbospdfBackend'*/[0m
+  [1m[36mActiveRecord::InternalMetadata Create (1.6ms)[0m  [1m[32mINSERT INTO `ar_internal_metadata` (`key`, `value`, `created_at`, `updated_at`) VALUES ('environment', 'development', '2025-07-13 19:16:41.431257', '2025-07-13 19:16:41.431259') RETURNING `key` /*application='ShabbospdfBackend'*/[0m
+Migrating to CreateUsers (20250713190158)
+  [1m[35m (24.2ms)[0m  [1m[35mCREATE TABLE `users` (`id` bigint NOT NULL AUTO_INCREMENT PRIMARY KEY, `first_name` varchar(255), `last_name` varchar(255), `email` varchar(255), `created_at` datetime(6) NOT NULL, `updated_at` datetime(6) NOT NULL) /*application='ShabbospdfBackend'*/[0m
+  [1m[35m (46.4ms)[0m  [1m[35mCREATE UNIQUE INDEX `index_users_on_email` ON `users` (`email`) /*application='ShabbospdfBackend'*/[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.4ms)[0m  [1m[32mINSERT INTO `schema_migrations` (`version`) VALUES ('20250713190158') RETURNING `version` /*application='ShabbospdfBackend'*/[0m
+  [1m[35mSQL (0.1ms)[0m  [1m[34mSELECT RELEASE_LOCK('4385993397488378970') /*application='ShabbospdfBackend'*/[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1m[34mSELECT `schema_migrations`.`version` FROM `schema_migrations` ORDER BY `schema_migrations`.`version` ASC /*application='ShabbospdfBackend'*/[0m
