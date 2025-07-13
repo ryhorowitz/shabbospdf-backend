@@ -12,3 +12,37 @@ Migrating to CreateUsers (20250713190158)
   [1m[36mActiveRecord::SchemaMigration Create (0.4ms)[0m  [1m[32mINSERT INTO `schema_migrations` (`version`) VALUES ('20250713190158') RETURNING `version` /*application='ShabbospdfBackend'*/[0m
   [1m[35mSQL (0.1ms)[0m  [1m[34mSELECT RELEASE_LOCK('4385993397488378970') /*application='ShabbospdfBackend'*/[0m
   [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1m[34mSELECT `schema_migrations`.`version` FROM `schema_migrations` ORDER BY `schema_migrations`.`version` ASC /*application='ShabbospdfBackend'*/[0m
+Started GET "/up" for ::1 at 2025-07-13 15:24:24 -0400
+  [1m[36mActiveRecord::SchemaMigration Load (0.3ms)[0m  [1m[34mSELECT `schema_migrations`.`version` FROM `schema_migrations` ORDER BY `schema_migrations`.`version` ASC /*application='ShabbospdfBackend'*/[0m
+Processing by Rails::HealthController#show as HTML
+  Rendering html template
+  Rendered html template (Duration: 0.1ms | GC: 0.0ms)
+Completed 200 OK in 9ms (Views: 4.2ms | ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/api/v1/users" for ::1 at 2025-07-13 15:24:37 -0400
+Processing by Api::V1::UsersController#index as HTML
+  [1m[36mUser Load (0.9ms)[0m  [1m[34mSELECT `users`.* FROM `users` /*action='index',application='ShabbospdfBackend',controller='users'*/[0m
+  ↳ app/controllers/api/v1/users_controller.rb:6:in 'Api::V1::UsersController#index'
+Completed 200 OK in 24ms (Views: 0.9ms | ActiveRecord: 1.1ms (1 query, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/api/v1/users" for ::1 at 2025-07-13 15:26:43 -0400
+  [1m[36mActiveRecord::SchemaMigration Load (0.3ms)[0m  [1m[34mSELECT `schema_migrations`.`version` FROM `schema_migrations` ORDER BY `schema_migrations`.`version` ASC /*application='ShabbospdfBackend'*/[0m
+Processing by Api::V1::UsersController#index as HTML
+  [1m[36mUser Load (0.9ms)[0m  [1m[34mSELECT `users`.* FROM `users` /*action='index',application='ShabbospdfBackend',controller='users'*/[0m
+  ↳ app/controllers/api/v1/users_controller.rb:6:in 'Api::V1::UsersController#index'
+Completed 200 OK in 11ms (Views: 1.6ms | ActiveRecord: 1.1ms (1 query, 0 cached) | GC: 3.1ms)
+
+
+Started GET "/favicon.ico" for ::1 at 2025-07-13 15:26:43 -0400
+  
+ActionController::RoutingError (No route matches [GET] "/favicon.ico"):
+  
+Started GET "/up" for ::1 at 2025-07-13 15:26:57 -0400
+Processing by Rails::HealthController#show as HTML
+  Rendering html template
+  Rendered html template (Duration: 0.1ms | GC: 0.0ms)
+Completed 200 OK in 4ms (Views: 1.7ms | ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 0.0ms)
+
+
