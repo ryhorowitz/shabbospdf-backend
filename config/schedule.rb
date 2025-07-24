@@ -19,6 +19,9 @@
 
 # Learn more: http://github.com/javan/whenever
 
+env :PATH, ENV['PATH']
+set :job_template, "/Users/rywitz/.local/share/mise/installs/ruby/3.4.4/bin/bundler exec :job"
+
 # Set the environment
 set :environment, ENV['RAILS_ENV'] || 'development'
 
@@ -27,5 +30,10 @@ set :output, "log/cron.log"
 
 # Run the weekly email job every Friday at 6:00 AM
 every :friday, at: '6:00 am' do
+  runner "SendWeeklyEmailsJob.perform_later"
+end 
+
+# test cronjob
+every 1.minute do
   runner "SendWeeklyEmailsJob.perform_later"
 end 

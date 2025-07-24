@@ -124,3 +124,281 @@ Processing by Api::V1::UsersController#create as */*
 Completed 201 Created in 11ms (Views: 0.1ms | ActiveRecord: 5.1ms (2 queries, 0 cached) | GC: 1.6ms)
 
 
+Started GET "/api/v1/users" for ::1 at 2025-07-14 12:43:54 -0400
+Processing by Api::V1::UsersController#index as HTML
+  [1m[36mUser Load (46.0ms)[0m  [1m[34mSELECT `users`.* FROM `users` /*action='index',application='ShabbospdfBackend',controller='users'*/[0m
+  ↳ app/controllers/api/v1/users_controller.rb:6:in 'Api::V1::UsersController#index'
+Completed 200 OK in 55ms (Views: -5.3ms | ActiveRecord: 58.6ms (1 query, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/favicon.ico" for ::1 at 2025-07-14 12:43:54 -0400
+  
+ActionController::RoutingError (No route matches [GET] "/favicon.ico"):
+  
+Started GET "/up" for ::1 at 2025-07-14 12:44:02 -0400
+Processing by Rails::HealthController#show as HTML
+  Rendering html template
+  Rendered html template (Duration: 0.2ms | GC: 0.0ms)
+Completed 200 OK in 2ms (Views: 1.4ms | ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 0.0ms)
+
+
+[ActiveJob] Enqueued SendWeeklyEmailsJob (Job ID: 7ea792bd-513b-45f0-9b6c-298b1ae5ccfa) to Async(default)
+[ActiveJob] ↳ (shabbospdf-backend):1:in '<main>'
+[ActiveJob] [SendWeeklyEmailsJob] [7ea792bd-513b-45f0-9b6c-298b1ae5ccfa] Performing SendWeeklyEmailsJob (Job ID: 7ea792bd-513b-45f0-9b6c-298b1ae5ccfa) from Async(default) enqueued at 2025-07-14T16:46:59.337891000Z
+[ActiveJob] [SendWeeklyEmailsJob] [7ea792bd-513b-45f0-9b6c-298b1ae5ccfa]   [1m[36mUser Load (1.2ms)[0m  [1m[34mSELECT `users`.* FROM `users` ORDER BY `users`.`id` ASC LIMIT 1000 /*application='ShabbospdfBackend',job='SendWeeklyEmailsJob'*/[0m
+[ActiveJob] [SendWeeklyEmailsJob] [7ea792bd-513b-45f0-9b6c-298b1ae5ccfa]   Rendering layout layouts/mailer.html.erb
+[ActiveJob] [SendWeeklyEmailsJob] [7ea792bd-513b-45f0-9b6c-298b1ae5ccfa]   Rendering weekly_email_mailer/weekly_email.html.erb within layouts/mailer
+[ActiveJob] [SendWeeklyEmailsJob] [7ea792bd-513b-45f0-9b6c-298b1ae5ccfa]   Rendered weekly_email_mailer/weekly_email.html.erb within layouts/mailer (Duration: 0.2ms | GC: 0.0ms)
+[ActiveJob] [SendWeeklyEmailsJob] [7ea792bd-513b-45f0-9b6c-298b1ae5ccfa]   Rendered layout layouts/mailer.html.erb (Duration: 0.4ms | GC: 0.0ms)
+[ActiveJob] [SendWeeklyEmailsJob] [7ea792bd-513b-45f0-9b6c-298b1ae5ccfa]   Rendering layout layouts/mailer.text.erb
+[ActiveJob] [SendWeeklyEmailsJob] [7ea792bd-513b-45f0-9b6c-298b1ae5ccfa]   Rendering weekly_email_mailer/weekly_email.text.erb within layouts/mailer
+[ActiveJob] [SendWeeklyEmailsJob] [7ea792bd-513b-45f0-9b6c-298b1ae5ccfa]   Rendered weekly_email_mailer/weekly_email.text.erb within layouts/mailer (Duration: 0.1ms | GC: 0.0ms)
+[ActiveJob] [SendWeeklyEmailsJob] [7ea792bd-513b-45f0-9b6c-298b1ae5ccfa]   Rendered layout layouts/mailer.text.erb (Duration: 0.2ms | GC: 0.0ms)
+[ActiveJob] [SendWeeklyEmailsJob] [7ea792bd-513b-45f0-9b6c-298b1ae5ccfa] WeeklyEmailMailer#weekly_email: processed outbound mail in 31.3ms
+[ActiveJob] [SendWeeklyEmailsJob] [7ea792bd-513b-45f0-9b6c-298b1ae5ccfa] Delivered mail 6875348375386_c381175028f8@Ryans-MacBook-Air.local.mail (25.1ms)
+[ActiveJob] [SendWeeklyEmailsJob] [7ea792bd-513b-45f0-9b6c-298b1ae5ccfa] Date: Mon, 14 Jul 2025 12:46:59 -0400
+From: from@example.com
+To: ryanhorowitz@yahoo.com
+Message-ID: <6875348375386_c381175028f8@Ryans-MacBook-Air.local.mail>
+Subject: Your Weekly Shabbos PDF is Ready!
+Mime-Version: 1.0
+Content-Type: multipart/alternative;
+ boundary="--==_mimepart_687534837471c_c38117502791";
+ charset=UTF-8
+Content-Transfer-Encoding: 7bit
+
+
+----==_mimepart_687534837471c_c38117502791
+Content-Type: text/plain;
+ charset=UTF-8
+Content-Transfer-Encoding: quoted-printable
+
+Good Shabbos, Reuven!
+
+We hope you're having a wonderful week! Your weekly Shabbos PDF is now re=
+ady and available for download.
+
+Download your PDF at: [PDF_DOWNLOAD_LINK]
+
+If you have any questions or need assistance, please don't hesitate to re=
+ach out to us.
+
+Wishing you a peaceful and meaningful Shabbat,
+The Shabbos PDF Team
+
+---
+=C2=A9 2025 Shabbos PDF. All rights reserved.
+You're receiving this email because you're subscribed to our weekly Shabb=
+os PDF service. =
+
+
+----==_mimepart_687534837471c_c38117502791
+Content-Type: text/html;
+ charset=UTF-8
+Content-Transfer-Encoding: quoted-printable
+
+<!-- BEGIN app/views/layouts/mailer.html.erb --><!DOCTYPE html>
+<html>
+  <head>
+    <meta http-equiv=3D"Content-Type" content=3D"text/html; charset=3Dutf=
+-8">
+    <style>
+      /* Email styles need to be inline */
+    </style>
+  </head>
+
+  <body>
+    <!-- BEGIN app/views/weekly_email_mailer/weekly_email.html.erb --><!D=
+OCTYPE html>
+<html>
+<head>
+  <meta content=3D'text/html; charset=3DUTF-8' http-equiv=3D'Content-Type=
+' />
+  <style>
+    body { font-family: Arial, sans-serif; line-height: 1.6; color: #333;=
+ }
+    .container { max-width: 600px; margin: 0 auto; padding: 20px; }
+    .header { background-color: #2c3e50; color: white; padding: 20px; tex=
+t-align: center; }
+    .content { padding: 20px; background-color: #f8f9fa; }
+    .footer { text-align: center; padding: 20px; color: #666; font-size: =
+12px; }
+    .button { display: inline-block; padding: 12px 24px; background-color=
+: #3498db; color: white; text-decoration: none; border-radius: 5px; }
+  </style>
+</head>
+<body>
+  <div class=3D"container">
+    <div class=3D"header">
+      <h1>Good Shabbos!</h1>
+    </div>
+    =
+
+    <div class=3D"content">
+      <h2>Good Shabbos, Reuven!</h2>
+      =
+
+      <p>We hope you're having a wonderful week! Your weekly Shabbos PDF =
+is now ready and available for download.</p>
+      =
+
+      <p style=3D"text-align: center; margin: 30px 0;">
+        <a href=3D"#" class=3D"button">Download Your PDF</a>
+      </p>
+      =
+
+      <p>If you have any questions or need assistance, please don't hesit=
+ate to reach out to us.</p>
+      =
+
+      <p>Wishing you a peaceful and meaningful Shabbos,<br>
+      The Shabbos PDF Team</p>
+    </div>
+    =
+
+    <div class=3D"footer">
+      <p>=C2=A9 2025 Shabbos PDF. All rights reserved.</p>
+      <p>You're receiving this email because you're subscribed to our wee=
+kly Shabbos PDF service.</p>
+    </div>
+  </div>
+</body>
+</html> <!-- END app/views/weekly_email_mailer/weekly_email.html.erb -->
+  </body>
+</html>
+<!-- END app/views/layouts/mailer.html.erb -->=
+
+----==_mimepart_687534837471c_c38117502791--
+
+[ActiveJob] [SendWeeklyEmailsJob] [7ea792bd-513b-45f0-9b6c-298b1ae5ccfa] Weekly email sent to ryanhorowitz@yahoo.com
+[ActiveJob] [SendWeeklyEmailsJob] [7ea792bd-513b-45f0-9b6c-298b1ae5ccfa] Performed SendWeeklyEmailsJob (Job ID: 7ea792bd-513b-45f0-9b6c-298b1ae5ccfa) from Async(default) in 149.99ms
+[ActiveJob] [SendWeeklyEmailsJob] [79e8e0a3-421a-460d-8a38-ace5c6c5f352] Performing SendWeeklyEmailsJob (Job ID: 79e8e0a3-421a-460d-8a38-ace5c6c5f352) from Async(default)
+[ActiveJob] [SendWeeklyEmailsJob] [79e8e0a3-421a-460d-8a38-ace5c6c5f352] ↳ (shabbospdf-backend):1:in '<main>'
+[ActiveJob] [SendWeeklyEmailsJob] [79e8e0a3-421a-460d-8a38-ace5c6c5f352]   [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT `users`.* FROM `users` ORDER BY `users`.`id` ASC LIMIT 1000 /*application='ShabbospdfBackend',job='SendWeeklyEmailsJob'*/[0m
+[ActiveJob] [SendWeeklyEmailsJob] [79e8e0a3-421a-460d-8a38-ace5c6c5f352]   Rendering layout layouts/mailer.html.erb
+[ActiveJob] [SendWeeklyEmailsJob] [79e8e0a3-421a-460d-8a38-ace5c6c5f352]   Rendering weekly_email_mailer/weekly_email.html.erb within layouts/mailer
+[ActiveJob] [SendWeeklyEmailsJob] [79e8e0a3-421a-460d-8a38-ace5c6c5f352]   Rendered weekly_email_mailer/weekly_email.html.erb within layouts/mailer (Duration: 0.3ms | GC: 0.0ms)
+[ActiveJob] [SendWeeklyEmailsJob] [79e8e0a3-421a-460d-8a38-ace5c6c5f352]   Rendered layout layouts/mailer.html.erb (Duration: 0.5ms | GC: 0.0ms)
+[ActiveJob] [SendWeeklyEmailsJob] [79e8e0a3-421a-460d-8a38-ace5c6c5f352]   Rendering layout layouts/mailer.text.erb
+[ActiveJob] [SendWeeklyEmailsJob] [79e8e0a3-421a-460d-8a38-ace5c6c5f352]   Rendering weekly_email_mailer/weekly_email.text.erb within layouts/mailer
+[ActiveJob] [SendWeeklyEmailsJob] [79e8e0a3-421a-460d-8a38-ace5c6c5f352]   Rendered weekly_email_mailer/weekly_email.text.erb within layouts/mailer (Duration: 0.1ms | GC: 0.0ms)
+[ActiveJob] [SendWeeklyEmailsJob] [79e8e0a3-421a-460d-8a38-ace5c6c5f352]   Rendered layout layouts/mailer.text.erb (Duration: 0.2ms | GC: 0.0ms)
+[ActiveJob] [SendWeeklyEmailsJob] [79e8e0a3-421a-460d-8a38-ace5c6c5f352] WeeklyEmailMailer#weekly_email: processed outbound mail in 40.0ms
+[ActiveJob] [SendWeeklyEmailsJob] [79e8e0a3-421a-460d-8a38-ace5c6c5f352] Delivered mail 687534fd1fed0_cba35c81701d@Ryans-MacBook-Air.local.mail (4.0ms)
+[ActiveJob] [SendWeeklyEmailsJob] [79e8e0a3-421a-460d-8a38-ace5c6c5f352] Date: Mon, 14 Jul 2025 12:49:01 -0400
+From: from@example.com
+To: ryanhorowitz@yahoo.com
+Message-ID: <687534fd1fed0_cba35c81701d@Ryans-MacBook-Air.local.mail>
+Subject: Your Weekly Shabbos PDF is Ready!
+Mime-Version: 1.0
+Content-Type: multipart/alternative;
+ boundary="--==_mimepart_687534fd1f99b_cba35c8169db";
+ charset=UTF-8
+Content-Transfer-Encoding: 7bit
+
+
+----==_mimepart_687534fd1f99b_cba35c8169db
+Content-Type: text/plain;
+ charset=UTF-8
+Content-Transfer-Encoding: quoted-printable
+
+Good Shabbos, Reuven!
+
+We hope you're having a wonderful week! Your weekly Shabbos PDF is now re=
+ady and available for download.
+
+Download your PDF at: [PDF_DOWNLOAD_LINK]
+
+If you have any questions or need assistance, please don't hesitate to re=
+ach out to us.
+
+Wishing you a peaceful and meaningful Shabbat,
+The Shabbos PDF Team
+
+---
+=C2=A9 2025 Shabbos PDF. All rights reserved.
+You're receiving this email because you're subscribed to our weekly Shabb=
+os PDF service. =
+
+
+----==_mimepart_687534fd1f99b_cba35c8169db
+Content-Type: text/html;
+ charset=UTF-8
+Content-Transfer-Encoding: quoted-printable
+
+<!-- BEGIN app/views/layouts/mailer.html.erb --><!DOCTYPE html>
+<html>
+  <head>
+    <meta http-equiv=3D"Content-Type" content=3D"text/html; charset=3Dutf=
+-8">
+    <style>
+      /* Email styles need to be inline */
+    </style>
+  </head>
+
+  <body>
+    <!-- BEGIN app/views/weekly_email_mailer/weekly_email.html.erb --><!D=
+OCTYPE html>
+<html>
+<head>
+  <meta content=3D'text/html; charset=3DUTF-8' http-equiv=3D'Content-Type=
+' />
+  <style>
+    body { font-family: Arial, sans-serif; line-height: 1.6; color: #333;=
+ }
+    .container { max-width: 600px; margin: 0 auto; padding: 20px; }
+    .header { background-color: #2c3e50; color: white; padding: 20px; tex=
+t-align: center; }
+    .content { padding: 20px; background-color: #f8f9fa; }
+    .footer { text-align: center; padding: 20px; color: #666; font-size: =
+12px; }
+    .button { display: inline-block; padding: 12px 24px; background-color=
+: #3498db; color: white; text-decoration: none; border-radius: 5px; }
+  </style>
+</head>
+<body>
+  <div class=3D"container">
+    <div class=3D"header">
+      <h1>Good Shabbos!</h1>
+    </div>
+    =
+
+    <div class=3D"content">
+      <h2>Good Shabbos, Reuven!</h2>
+      =
+
+      <p>We hope you're having a wonderful week! Your weekly Shabbos PDF =
+is now ready and available for download.</p>
+      =
+
+      <p style=3D"text-align: center; margin: 30px 0;">
+        <a href=3D"#" class=3D"button">Download Your PDF</a>
+      </p>
+      =
+
+      <p>If you have any questions or need assistance, please don't hesit=
+ate to reach out to us.</p>
+      =
+
+      <p>Wishing you a peaceful and meaningful Shabbos,<br>
+      The Shabbos PDF Team</p>
+    </div>
+    =
+
+    <div class=3D"footer">
+      <p>=C2=A9 2025 Shabbos PDF. All rights reserved.</p>
+      <p>You're receiving this email because you're subscribed to our wee=
+kly Shabbos PDF service.</p>
+    </div>
+  </div>
+</body>
+</html> <!-- END app/views/weekly_email_mailer/weekly_email.html.erb -->
+  </body>
+</html>
+<!-- END app/views/layouts/mailer.html.erb -->=
+
+----==_mimepart_687534fd1f99b_cba35c8169db--
+
+[ActiveJob] [SendWeeklyEmailsJob] [79e8e0a3-421a-460d-8a38-ace5c6c5f352] Weekly email sent to ryanhorowitz@yahoo.com
+[ActiveJob] [SendWeeklyEmailsJob] [79e8e0a3-421a-460d-8a38-ace5c6c5f352] Performed SendWeeklyEmailsJob (Job ID: 79e8e0a3-421a-460d-8a38-ace5c6c5f352) from Async(default) in 112.92ms
+[ActiveJob] [SendWeeklyEmailsJob] [79e8e0a3-421a-460d-8a38-ace5c6c5f352] ↳ (shabbospdf-backend):1:in '<main>'
